@@ -14,6 +14,4 @@ Aufgaben:
 	1.	Implementieren eines Endpoints /tickets (POST), um ein Ticket zu erstellen.
 	2.	Validierung der Eingabedaten (z. B. kein leeres Titel- oder Beschreibungsfeld).
 	3.	Speicherung des Tickets in der Datenbank und Verknüpfung mit der Ticket-ID.
-	4.	Schreiben von mindestens 2-3 Unit Tests:
-	•	Happy-Path: Erfolgreiches Erstellen eines Tickets.
-	•	Sad-Path: Validierungsfehler bei fehlenden Feldern.
+	4.	Schreiben von mindestens 2-3 Unit Tests

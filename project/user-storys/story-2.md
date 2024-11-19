@@ -12,7 +12,7 @@ Akzeptanzkriterien:
 
 Aufgaben:
 
-	1.	Implementieren eines Endpoints /tickets/{id} (PATCH), um Tickets zu aktualisieren.
+	1.	Implementieren eines Endpoints /tickets/{id} , um Tickets zu aktualisieren.
 	2.	Validierung der Aktualisierungen (z. B. nur erlaubte Status-Übergänge).
 	3.	Implementieren einer Funktion, um ein Ticket an den 2nd-Level-Support zu eskalieren.
-	4.	Schreiben von mindestens 2-3 Unit Tests:
+	4.	Schreiben von mindestens 2-3 Unit Tests

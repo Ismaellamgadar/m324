@@ -8,12 +8,23 @@ public class Ticket {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id", nullable = false)
     private Long id;
+    String description;
+    Long price;
+    String firstname;
+    String lastname;
+    String event;
+
+    public Ticket(String description, Long price, String firstname, String lastname, String event) {
+        this.description = description;
+        this.price = price;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.event = event;
+    }
+
+    public Ticket() {}
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 }

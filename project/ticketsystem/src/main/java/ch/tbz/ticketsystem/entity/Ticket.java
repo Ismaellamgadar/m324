@@ -1,4 +1,4 @@
-package ch.tbz.ticketsystem.entities;
+package ch.tbz.ticketsystem.entity;
 
 import jakarta.persistence.*;
 

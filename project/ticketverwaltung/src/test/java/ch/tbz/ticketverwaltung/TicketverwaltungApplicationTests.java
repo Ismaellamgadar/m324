@@ -1,10 +1,10 @@
-package ch.tbz.ticketsystem;
+package ch.tbz.ticketverwaltung;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class TicketsystemApplicationTests {
+class TicketverwaltungApplicationTests {
 
 	@Test
 	void contextLoads() {

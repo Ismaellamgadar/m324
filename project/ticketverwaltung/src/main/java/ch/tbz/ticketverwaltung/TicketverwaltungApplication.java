@@ -1,13 +1,13 @@
-package ch.tbz.ticketsystem;
+package ch.tbz.ticketverwaltung;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TicketsystemApplication {
+public class TicketverwaltungApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(TicketsystemApplication.class, args);
+		SpringApplication.run(TicketverwaltungApplication.class, args);
 	}
 
 }

@@ -5,7 +5,6 @@ import ch.tbz.ticketsystem.repositories.Ticketrepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -23,10 +22,5 @@ public class Ticketcontroller {
     public Long createTicket(String description, Long price, String firstname, String lastname, String event) {
         Ticket newTicket = new Ticket(description, price, firstname, lastname, event);
         return ticketrepository.save(newTicket).getId();
-    }
-
-    @PostMapping("/entity/")
-    public Long createTicket(Ticket ticket) {
-        return ticketrepository.save(ticket).getId();
     }
 }

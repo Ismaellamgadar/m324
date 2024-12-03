@@ -12,11 +12,12 @@
 
 ## Auslöser der CI-Pipeline
 1. **Push-Ereignisse:**  
-   Die Pipeline wird bei jedem Push auf Branches mit den Mustern `feature/*` oder `release/*` ausgeführt.
+   Die Pipeline wird bei jedem Push auf Branches mit dem Muster `feature/*` ausgeführt.
    
 2. **Merge-Ereignisse:**  
    - Wenn Änderungen in `feature/*` in `develop` gemergt werden, wird die Pipeline ausgeführt.
-   - Beim Merge von `release/*` in `main` oder `develop` wird die Pipeline ebenfalls ausgelöst, um sicherzustellen, dass keine fehlerhaften Änderungen übernommen werden.
+   - Beim Merge von `develop` in `release/*` wird die Pipeline ausgeführt, um sicherzustellen, dass die vorbereitete Version stabil ist.
+   - Beim Merge von `release/*` in `main` wird die Pipeline erneut ausgeführt, um den finalen Stand zu validieren.
 
 ---
 

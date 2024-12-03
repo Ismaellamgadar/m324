@@ -1,6 +1,6 @@
 package ch.tbz.ticketverwaltung.service;
 
-import ch.tbz.ticketverwaltung.entitiy.Ticket;
+import ch.tbz.ticketverwaltung.entity.Ticket;
 import ch.tbz.ticketverwaltung.repository.TicketRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;

@@ -11,9 +11,12 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.mockito.Mockito.*;
 
@@ -55,5 +58,41 @@ class EmployeeControllerTest {
                 .andExpect(jsonPath("$.skillLevel").value("must be less than or equal to 5"));
 
         verify(employeeService, times(0)).createEmployee(Mockito.any(Employee.class));
+    }
+
+    @Test
+    void testGetAllEmployees() throws Exception {
+        Employee employee1 = new Employee("John", "Doe", new Date(), 3);
+        employee1.setId(1L);
+        Employee employee2 = new Employee("Jane", "Smith", new Date(), 4);
+        employee2.setId(2L);
+
+        when(employeeService.getAllEmployees()).thenReturn(Arrays.asList(employee1, employee2));
+
+        mockMvc.perform(get("/employee")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].id").value(1))
+                .andExpect(jsonPath("$[0].firstname").value("John"))
+                .andExpect(jsonPath("$[0].lastname").value("Doe"))
+                .andExpect(jsonPath("$[0].skillLevel").value(3))
+                .andExpect(jsonPath("$[1].id").value(2))
+                .andExpect(jsonPath("$[1].firstname").value("Jane"))
+                .andExpect(jsonPath("$[1].lastname").value("Smith"))
+                .andExpect(jsonPath("$[1].skillLevel").value(4));
+
+        verify(employeeService, times(1)).getAllEmployees();
+    }
+
+    @Test
+    void testGetAllEmployeesEmpty() throws Exception {
+        when(employeeService.getAllEmployees()).thenReturn(Collections.emptyList());
+
+        mockMvc.perform(get("/employee")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isNotFound())
+                .andExpect(content().string("No employees found."));
+
+        verify(employeeService, times(1)).getAllEmployees();
     }
 }

@@ -1,5 +1,6 @@
 package ch.tbz.ticketverwaltung.service;
 
+import ch.tbz.ticketverwaltung.UserResponse;
 import ch.tbz.ticketverwaltung.entity.Ticket;
 import ch.tbz.ticketverwaltung.repository.TicketRepository;
 import org.springframework.http.ResponseEntity;
@@ -17,12 +18,9 @@ public class TicketService {
     }
 
     public void createTicket(Ticket ticket) {
-        String userServiceUrl = "http://localhost:8080/employee/" + ticket.getUserId();
-        ResponseEntity<Boolean> response = restTemplate.getForEntity(userServiceUrl, Boolean.class);
-
-        if (response.getBody() == null || !response.getBody()) {
-            throw new IllegalArgumentException("User does not exist");
-        }
+        String userServiceUrl = "http://localhost:8081/employee/" + ticket.getUserId();
+        ResponseEntity<String> response = restTemplate.getForEntity(userServiceUrl, String.class);
+        System.out.println("Response from User Service: " + response.getBody());
 
         ticketRepository.save(ticket);
     }

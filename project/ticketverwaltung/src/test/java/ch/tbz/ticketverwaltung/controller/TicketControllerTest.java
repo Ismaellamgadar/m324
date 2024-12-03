@@ -40,7 +40,7 @@ class TicketControllerTest {
     void testGetAllTickets() throws Exception {
         Mockito.when(ticketRepository.findAll()).thenReturn(Collections.emptyList());
 
-        mockMvc.perform(get("/"))
+        mockMvc.perform(get("/ticket"))
                 .andExpect(status().isOk())
                 .andExpect(content().json("[]"));
     }
@@ -51,7 +51,7 @@ class TicketControllerTest {
         ticket.setId(1L);
         Mockito.when(ticketRepository.findById("1")).thenReturn(Optional.of(ticket));
 
-        mockMvc.perform(get("/id/1"))
+        mockMvc.perform(get("/ticket/1"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id").value("1"));
     }
@@ -60,7 +60,7 @@ class TicketControllerTest {
     void testGetTicketById_NotFound() throws Exception {
         Mockito.when(ticketRepository.findById("1")).thenReturn(Optional.empty());
 
-        mockMvc.perform(get("/id/1"))
+        mockMvc.perform(get("/ticket/1"))
                 .andExpect(status().isNotFound());
     }
 
@@ -72,7 +72,7 @@ class TicketControllerTest {
 
         Mockito.doNothing().when(ticketService).createTicket(any(Ticket.class));
 
-        mockMvc.perform(post("/")
+        mockMvc.perform(post("/ticket")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(ticket)))
                 .andExpect(status().isCreated())
@@ -92,7 +92,7 @@ class TicketControllerTest {
         request.setDateString("2023-12-01");
         request.setType("review");
 
-        mockMvc.perform(put("/date/1")
+        mockMvc.perform(put("/ticket/date/1")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))
                 .andExpect(status().isOk());
@@ -106,7 +106,7 @@ class TicketControllerTest {
         request.setDateString("2023-12-01");
         request.setType("review");
 
-        mockMvc.perform(put("/date/1")
+        mockMvc.perform(put("/ticket/date/1")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))
                 .andExpect(status().isNotFound());

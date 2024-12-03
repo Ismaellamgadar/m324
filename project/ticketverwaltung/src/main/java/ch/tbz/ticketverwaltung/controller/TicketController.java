@@ -16,6 +16,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 @RestController
+@RequestMapping("/ticket")
 public class TicketController {
     @Autowired
     TicketRepository ticketrepository;
@@ -23,19 +24,19 @@ public class TicketController {
     @Autowired
     TicketService ticketService;
 
-    @GetMapping("/")
+    @GetMapping()
     public List<Ticket> getAllTickets() {
         return ticketrepository.findAll();
     }
 
-    @GetMapping("/id/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Ticket> getTicketById(@PathVariable String id) {
         Optional<Ticket> ticket = ticketrepository.findById(id);
         return ticket.map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @PostMapping("/")
+    @PostMapping()
     public ResponseEntity<Ticket> createTicket(@RequestBody @Validated Ticket ticket) {
         ticketService.createTicket(ticket);
         return ResponseEntity.status(HttpStatus.CREATED).body(ticket);

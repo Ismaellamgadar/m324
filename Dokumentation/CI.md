@@ -1,5 +1,4 @@
-
-# CI Pipelines
+# CI-Plan
 
 ## Ziele der CI-Pipeline
 1. **Automatisches Kompilieren des Codes:** Sicherstellen, dass der Code bei jedem definierten Ereignis erfolgreich kompiliert wird.
@@ -7,16 +6,17 @@
    - Unit-Tests (bereits vorhanden).
    - Integrationstests (werden später hinzugefügt).
 3. **Berichterstellung:** Erstellung eines Berichts über die Ergebnisse der Builds und Tests, abrufbar innerhalb jeder Pipeline-Ausführung.
-4. **Kontinuierliche Prüfung der Codequalität:** Sicherstellen, dass Änderungen stabil und fehlerfrei sind, bevor sie auf `develop` oder `main` gemergt werden.
+4. **Kontinuierliche Prüfung der Codequalität:** Sicherstellen, dass Änderungen stabil und fehlerfrei sind, bevor sie auf `release`, `develop` oder `main` gemergt werden.
 
 ---
 
 ## Auslöser der CI-Pipeline
 1. **Push-Ereignisse:**  
-   Die Pipeline wird bei jedem Push auf Branches mit dem Muster `feature/*` ausgeführt.
+   Die Pipeline wird bei jedem Push auf Branches mit den Mustern `feature/*` oder `release/*` ausgeführt.
    
 2. **Merge-Ereignisse:**  
-   Wenn Änderungen in `feature/*` in `develop` oder `main` gemergt werden, wird die Pipeline ausgelöst, um sicherzustellen, dass keine fehlerhaften Änderungen übernommen werden.
+   - Wenn Änderungen in `feature/*` in `develop` gemergt werden, wird die Pipeline ausgeführt.
+   - Beim Merge von `release/*` in `main` oder `develop` wird die Pipeline ebenfalls ausgelöst, um sicherzustellen, dass keine fehlerhaften Änderungen übernommen werden.
 
 ---
 

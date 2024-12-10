@@ -1,4 +1,4 @@
-name: CI-Pipeline
+name: Multi-Module CI Pipeline
 
 on:
   push:
@@ -14,30 +14,31 @@ jobs:
   build-and-test:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        app: [employeeManager, ticketsystem]
-
     steps:
+      # Step 1: Checkout Code
       - name: Checkout Code
         uses: actions/checkout@v3
 
+      # Step 2: Set up JDK 21
       - name: Set up JDK
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
           java-version: '21'
 
-      - name: Install Dependencies
-        working-directory: ./project/${{ matrix.app }}
+      # Step 3: Install Parent Dependencies
+      - name: Install Parent Dependencies
+        working-directory: ./project/ticket-system
         run: mvn dependency:resolve
 
-      - name: Build with Maven
-        working-directory: ./project/${{ matrix.app }}
+      # Step 4: Build All Modules
+      - name: Build All Modules
+        working-directory: ./project/ticket-system
         run: mvn clean compile
 
+      # Step 5: Run Unit Tests for All Modules
       - name: Run Unit Tests
-        working-directory: ./project/${{ matrix.app }}
+        working-directory: ./project/ticket-system
         run: mvn test
         env:
           MAVEN_OPTS: "-Dmaven.test.failure.ignore=true"
@@ -46,5 +47,5 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v3
         with:
-          name: ${{ matrix.app }}-test-results
-          path: ./project/${{ matrix.app }}/target/surefire-reports/
+          name: test-results
+          path: project/ticket-system/**/target/surefire-reports/

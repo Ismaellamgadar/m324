@@ -10,13 +10,15 @@ import lombok.ToString;
 import javax.validation.constraints.*;
 import java.time.LocalDate;
 
+import static jakarta.persistence.GenerationType.SEQUENCE;
+
 @Entity
 @ToString
 @Getter
 @Setter
 public class Ticket {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = SEQUENCE)
     private Long id;
     @NotNull(message = "State is mandatory")
     @Pattern(regexp = "OPEN|IN_PROGRESS|REVIEW|DONE", message = "State must be one of these options: 'OPEN', 'IN_PROGRESS', 'REVIEW', 'DONE'")

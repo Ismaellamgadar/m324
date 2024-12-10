@@ -26,27 +26,26 @@ public class TicketController {
 
     @GetMapping()
     public List<Ticket> getAllTickets() {
-        return ticketrepository.findAll();
+        return ticketService.getAllTickets();
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Ticket> getTicketById(@PathVariable String id) {
-        Optional<Ticket> ticket = ticketrepository.findById(id);
+        Optional<Ticket> ticket = ticketService.getTicketById(id);
         return ticket.map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @PostMapping()
     public ResponseEntity<Ticket> createTicket(@RequestBody @Validated Ticket ticket) {
-        ticketService.createTicket(ticket);
-        return ResponseEntity.status(HttpStatus.CREATED).body(ticket);
+        return ResponseEntity.status(ticketService.createTicket(ticket)).body(ticket);
     }
 
     @PutMapping("/date/{id}")
     private ResponseEntity<Ticket> updateTicketDate(@PathVariable String id, @RequestBody TicketUpdateRequest request) {
         LocalDate date = LocalDate.parse(request.getDateString());
         String type = request.getType();
-        Optional<Ticket> optionalTicket = ticketrepository.findById(id);
+        Optional<Ticket> optionalTicket = ticketService.getTicketById(id);
 
         if (optionalTicket.isPresent()) {
             Ticket ticket = optionalTicket.get();
@@ -57,7 +56,7 @@ public class TicketController {
                 ticket.setDone_date(date);
             }
 
-            ticketrepository.save(ticket);
+            ticketService.updateTicket(ticket);
             return ResponseEntity.status(HttpStatus.OK).body(ticket);
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();

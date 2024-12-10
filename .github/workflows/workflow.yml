@@ -14,6 +14,10 @@ jobs:
   build-and-test:
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        app: [employeeManager, ticketsystem]
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
@@ -25,12 +29,15 @@ jobs:
           java-version: '17'
 
       - name: Install Dependencies
+        working-directory: ./project/${{ matrix.app }}
         run: mvn dependency:resolve
 
       - name: Build with Maven
+        working-directory: ./project/${{ matrix.app }}
         run: mvn clean compile
 
       - name: Run Unit Tests
+        working-directory: ./project/${{ matrix.app }}
         run: mvn test
         env:
           MAVEN_OPTS: "-Dmaven.test.failure.ignore=true"
@@ -39,11 +46,5 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v3
         with:
-          name: test-results
-          path: target/surefire-reports/
-
-      - name: Publish Test Report
-        if: always()
-        run: |
-          echo "Generating build and test report summary..."
-          cat target/surefire-reports/*.txt
+          name: ${{ matrix.app }}-test-results
+          path: ./project/${{ matrix.app }}/target/surefire-reports/

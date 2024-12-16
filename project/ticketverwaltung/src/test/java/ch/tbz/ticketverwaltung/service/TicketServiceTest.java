@@ -3,6 +3,7 @@ package ch.tbz.ticketverwaltung.service;
 import ch.tbz.ticketverwaltung.State;
 import ch.tbz.ticketverwaltung.entity.Ticket;
 import ch.tbz.ticketverwaltung.repository.TicketRepository;
+import ch.tbz.ticketverwaltung.repository.UserRepository;
 import ch.tbz.ticketverwaltung.service.TicketService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,6 +15,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -30,6 +35,9 @@ public class TicketServiceTest {
     @Mock
     private TicketRepository ticketRepository;
 
+    @Mock
+    private UserRepository userRepository;
+
     @InjectMocks
     private TicketService ticketService;
 
@@ -40,7 +48,6 @@ public class TicketServiceTest {
 
     @Test
     void testGetAllTickets() {
-        // Arrange
         List<Ticket> tickets = Arrays.asList(
                 new Ticket(),
                 new Ticket()
@@ -99,22 +106,24 @@ public class TicketServiceTest {
     @Test
     void testCreateTicket_UserExists() {
         Ticket ticket = new Ticket();
-        ticket.setDescription("");
+        ticket.setDescription("Test Description");
         ticket.setState(State.OPEN);
         ticket.setUserId(1L);
         ticket.setTitle("Test Ticket");
 
-        String userServiceUrl = "http://localhost:8081/employee/1";
+        when(userRepository.doesUserExist(1L)).thenReturn(true);
 
-        when(restTemplate.getForEntity(userServiceUrl, Boolean.class))
-                .thenReturn(ResponseEntity.ok(true));
+        HttpStatus result = ticketService.createTicket(ticket);
 
-        ticketService.createTicket(ticket);
+        assertEquals(HttpStatus.CREATED, result);
 
         ArgumentCaptor<Ticket> captor = ArgumentCaptor.forClass(Ticket.class);
         verify(ticketRepository, times(1)).save(captor.capture());
         Ticket savedTicket = captor.getValue();
+
         assertEquals(1L, savedTicket.getUserId());
+        assertEquals("Test Description", savedTicket.getDescription());
+        assertEquals(State.OPEN, savedTicket.getState());
         assertEquals("Test Ticket", savedTicket.getTitle());
     }
 
@@ -126,10 +135,7 @@ public class TicketServiceTest {
         ticket.setState(State.OPEN);
         ticket.setUserId(100L);
 
-        String userServiceUrl = "http://localhost:8081/employee/1";
-
-        when(restTemplate.getForEntity(userServiceUrl, Boolean.class))
-                .thenReturn(ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null));
+        when(userRepository.doesUserExist(1L)).thenReturn(false);
 
         HttpStatus status = ticketService.createTicket(ticket);
 

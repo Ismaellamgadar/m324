@@ -33,7 +33,38 @@ Ausserdem verlässt das das Team  Schulzimmer und läuft während des Meetings h
 3. **Feedback durch den Lehrer** (falls notwendig):  
    - Optionaler Austausch mit dem Lehrer zur Klärung offener Fragen oder zur Einholung von Feedback.  
 
+---
+
 ## Prozesse
-### Code-Review
-### Pair-Programming
-### Sonstiger Austaush
+
+### **Code-Review**  
+**Ziel**: Sicherstellung der Code-Qualität durch gemeinsames Überprüfen und Feedback.  
+**Zeitpunkt**: Nach Abschluss eines Tasks oder nach Bedarf.  
+
+**Ablauf**:  
+1. **Code vorbereiten**: Der Entwickler stellt den fertigen Code zur Überprüfung bereit.  
+2. **Code-Review durch Teammitglied**: Ein anderes Teammitglied prüft den Code.  
+3. **Feedback geben**: Verbesserungsvorschläge werden dokumentiert und als Kommentare an den Entwickler zurückgegeben.  
+4. **Code-Optimierung**: Der Entwickler nimmt die Anpassungen vor und gibt den Code erneut zur Freigabe.  
+5. **Abschluss**: Nach erfolgreicher Überprüfung wird der Task abgeschlossen und in die nächste Kanban-Spalte verschoben.  
+
+---
+
+### **Pair-Programming**  
+**Ziel**: Effiziente Bearbeitung von Aufgaben durch Zusammenarbeit und Wissenstransfer.  
+**Zeitpunkt**: Bei komplexen oder kritischen Aufgaben, nach Bedarf.
+
+**Ablauf**:  
+1. **Rollenverteilung**: Ein Entwickler ist der **Driver** (schreibt aktiv den Code), der andere ist der **Navigator** (gibt Feedback und denkt mit).  
+2. **Zusammenarbeit**: Beide arbeiten gemeinsam an der Aufgabe, diskutieren Lösungsansätze und entscheiden gemeinsam.  
+3. **Rollenwechsel**: Bei Bedarf können die Rollen getauscht werden.
+
+---
+
+### **Sonstiger Austausch**  
+**Ziel**: Sicherstellen eines kontinuierlichen Informationsflusses und Kommunikation für kleine Fragen.  
+**Zeitpunkt**: Nach Bedarf.  
+
+**Ablauf**:  
+1. **Kommunikationstool**: Der Austausch findet über Microsoft Teams statt.  
+2. **Kurze Abstimmungen**: Fragen klären, Ideen teilen und schnelle Absprachen treffen, für z.B. Pull request updates.  

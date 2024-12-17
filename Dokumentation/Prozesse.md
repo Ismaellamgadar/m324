@@ -14,7 +14,7 @@ In diesem Dokument werden alle arten von Prozessen und Meeting definiert.
     - Was werde ich heute tun?  
     - Gibt es Schwierigkeiten oder Blocker, bei denen ich Hilfe brauche?
   
-Ausserdem verlässt das das Team  Schulzimmer und läuft während des Meetings herum, um Bewegung in den Arbeitsalltag zu integrieren.  
+Ausserdem verlässt das Team das Schulzimmer und läuft während des Meetings herum, um Bewegung in den Arbeitsalltag zu integrieren.  
 
 ---
 

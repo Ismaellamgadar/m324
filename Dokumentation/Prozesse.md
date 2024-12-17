@@ -24,9 +24,14 @@ Ausserdem verlässt das das Team  Schulzimmer und läuft während des Meetings h
 **Dauer**: Ca. **30 Minuten**  
 
 **Ablauf**:  
-
-
-### Planning
+1. **Präsentation des Fortschritts**:  
+   - Jedes Teammitglied zeigt den aktuellen Stand seiner Aufgaben.  
+2. **Austausch untereinander**:  
+   - Überblick über das **Backlog**.  
+   - Neue Aufgaben werden gemeinsam besprochen, geschätzt und aufgeteilt.  
+   - Sicherstellen, dass jedes Teammitglied eine klare Aufgabe bis zum nächsten Planning hat.  
+3. **Feedback durch den Lehrer** (falls notwendig):  
+   - Optionaler Austausch mit dem Lehrer zur Klärung offener Fragen oder zur Einholung von Feedback.  
 
 ## Prozesse
 ### Code-Review

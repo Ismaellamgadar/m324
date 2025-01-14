@@ -2,8 +2,7 @@
 
 ## **Ziele der CD-Pipeline**
 1. **Automatische Bereitstellung von Anwendungen:** Sicherstellen, dass neue Änderungen fehlerfrei und ohne manuelle Eingriffe in die Zielumgebungen ausgeliefert werden.
-2. **Umgebungsmanagement:** Bereitstellung in verschiedenen Umgebungen (z. B. `Staging`, `Production`) basierend auf definierten Regeln.
-3. **Verifizierung nach der Bereitstellung:** Überprüfen, dass die Anwendung nach der Bereitstellung wie erwartet funktioniert.
+2. **Verifizierung während der Bereitstellung:** Überprüfen, dass Tests usw. wie erwartet funktionieren.
 
 ---
 

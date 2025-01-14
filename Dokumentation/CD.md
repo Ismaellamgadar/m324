@@ -3,6 +3,8 @@
 ## **Ziele der CD-Pipeline**
 1. **Automatische Bereitstellung von Anwendungen:** Sicherstellen, dass neue Änderungen fehlerfrei und ohne manuelle Eingriffe in die Zielumgebungen ausgeliefert werden.
 2. **Verifizierung während der Bereitstellung:** Überprüfen, dass Tests usw. wie erwartet funktionieren.
+3. Optional: Implementieren von feature toggles.
+4. Optional: Implementieren von Canary Deployment
 
 ---
 

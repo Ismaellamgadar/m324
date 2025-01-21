@@ -1,4 +1,4 @@
-package ch.tbz.ticketsystem.repository;
+package ch.tbz.ticketverwaltung.repository;
 
 public interface UserRepository {
     boolean doesUserExist(Long userId);

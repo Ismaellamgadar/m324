@@ -1,32 +1,26 @@
-package ch.tbz.ticketsystem.service;
+package ch.tbz.ticketverwaltung.unit.service;
 
-import ch.tbz.ticketsystem.entity.State;
-import ch.tbz.ticketsystem.entity.Ticket;
-import ch.tbz.ticketsystem.repository.TicketRepository;
-import ch.tbz.ticketsystem.repository.UserRepository;
+import ch.tbz.ticketverwaltung.entity.State;
+import ch.tbz.ticketverwaltung.entity.Ticket;
+import ch.tbz.ticketverwaltung.repository.TicketRepository;
+import ch.tbz.ticketverwaltung.repository.UserRepository;
+import ch.tbz.ticketverwaltung.service.TicketService;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 

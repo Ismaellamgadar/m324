@@ -1,4 +1,4 @@
-package ch.tbz.ticketsystem.controller;
+package ch.tbz.ticketsystem.unit.controller;
 
 import ch.tbz.ticketsystem.dto.TicketUpdateRequestDto;
 import ch.tbz.ticketsystem.entity.Ticket;

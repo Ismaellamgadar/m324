@@ -1,9 +1,10 @@
-package ch.tbz.ticketsystem.service;
+package ch.tbz.ticketsystem.unit.service;
 
 import ch.tbz.ticketsystem.entity.State;
 import ch.tbz.ticketsystem.entity.Ticket;
 import ch.tbz.ticketsystem.repository.TicketRepository;
 import ch.tbz.ticketsystem.repository.UserRepository;
+import ch.tbz.ticketsystem.service.TicketService;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

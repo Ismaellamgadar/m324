@@ -1,4 +1,4 @@
-package ch.tbz.ticketsystem.entity;
+package ch.tbz.ticketverwaltung.entity;
 
 public enum State {
     OPEN,

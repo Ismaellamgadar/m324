@@ -1,7 +1,8 @@
-package ch.tbz.ticketsystem.integration;
+package ch.tbz.ticketverwaltung.integration;
 
-import ch.tbz.ticketsystem.entity.Ticket;
-import ch.tbz.ticketsystem.service.TicketService;
+import ch.tbz.ticketverwaltung.entity.State;
+import ch.tbz.ticketverwaltung.entity.Ticket;
+import ch.tbz.ticketverwaltung.service.TicketService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -42,7 +43,10 @@ class TicketServiceIntegrationTest {
     void testCreateTicket_UserExists() {
         Long userId = 1L;
         Ticket ticket = new Ticket();
-        ticket.setId(userId);
+        ticket.setUserId(userId);
+        ticket.setDescription("Test Description");
+        ticket.setTitle("Test Title");
+        ticket.setState(State.OPEN);
 
         String userServiceUrl = "http://localhost:8081/employee/" + userId;
 
@@ -60,7 +64,7 @@ class TicketServiceIntegrationTest {
     void testCreateTicket_UserDoesNotExist() {
         Long userId = 2L;
         Ticket ticket = new Ticket();
-        ticket.setId(userId);
+        ticket.setUserId(userId);
 
         String userServiceUrl = "http://localhost:8081/employee/" + userId;
 

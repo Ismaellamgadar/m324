@@ -1,4 +1,4 @@
-package ch.tbz.ticketsystem;
+package ch.tbz.ticketverwaltung;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

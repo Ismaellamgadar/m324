@@ -1,4 +1,4 @@
-package ch.tbz.ticketsystem.repository;
+package ch.tbz.ticketverwaltung.repository;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +15,8 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public boolean doesUserExist(Long userId) {
+        System.out.println(userId);
+        System.out.println("JFNAJFBAFSIBAFIH");
         String userServiceUrl = "http://localhost:8081/employee/" + userId;
         try {
             ResponseEntity<String> response = restTemplate.getForEntity(userServiceUrl, String.class);

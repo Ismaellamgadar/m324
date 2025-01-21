@@ -1,6 +1,6 @@
-package ch.tbz.ticketsystem.integration;
+package ch.tbz.ticketverwaltung.integration;
 
-import ch.tbz.ticketsystem.repository.UserRepositoryImpl;
+import ch.tbz.ticketverwaltung.repository.UserRepositoryImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

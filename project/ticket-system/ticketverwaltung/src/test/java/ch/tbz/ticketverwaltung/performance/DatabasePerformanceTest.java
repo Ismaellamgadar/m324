@@ -1,7 +1,7 @@
-package ch.tbz.ticketsystem.performance;
+package ch.tbz.ticketverwaltung.performance;
 
-import ch.tbz.ticketsystem.entity.Ticket;
-import ch.tbz.ticketsystem.repository.TicketRepository;
+import ch.tbz.ticketverwaltung.entity.Ticket;
+import ch.tbz.ticketverwaltung.repository.TicketRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;

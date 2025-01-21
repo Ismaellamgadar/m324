@@ -1,9 +1,9 @@
 package ch.tbz.ticketverwaltung.controller;
 
-import ch.tbz.ticketsystem.dto.TicketUpdateRequestDto;
-import ch.tbz.ticketsystem.entity.Ticket;
-import ch.tbz.ticketsystem.repository.TicketRepository;
-import ch.tbz.ticketsystem.service.TicketService;
+import ch.tbz.ticketverwaltung.dto.TicketUpdateRequestDto;
+import ch.tbz.ticketverwaltung.entity.Ticket;
+import ch.tbz.ticketverwaltung.repository.TicketRepository;
+import ch.tbz.ticketverwaltung.service.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

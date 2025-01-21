@@ -1,6 +1,6 @@
-package ch.tbz.ticketsystem.repository;
+package ch.tbz.ticketverwaltung.repository;
 
-import ch.tbz.ticketsystem.entity.Ticket;
+import ch.tbz.ticketverwaltung.entity.Ticket;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -3,7 +3,7 @@ package com.ch.tbz.employeeManager.controller;
 import com.ch.tbz.employeeManager.entity.Employee;
 import com.ch.tbz.employeeManager.service.EmployeeService;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;

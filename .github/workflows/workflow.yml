@@ -60,10 +60,9 @@ jobs:
           java-version: '21'
 
       - name: Run Performance Tests
-        working-directory: ./project/ticket-system
+        working-directory: ./project/ticket-system/ticketverwaltung
         run: |
-          echo "Running performance tests using Maven..."
-          mvn test -Dtest=*PerformanceTest
+          mvn test -Dtest=DatabasePerformanceTest
         env:
           MAVEN_OPTS: "-Dmaven.test.failure.ignore=false"
 

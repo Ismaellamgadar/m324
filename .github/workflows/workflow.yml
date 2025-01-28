@@ -91,11 +91,11 @@ jobs:
       - name: Build and Push ticketverwaltung Image
         working-directory: ./project/ticket-system
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/ticketverwaltung:latest -f ./ticketverwaltung/Dockerfile ./ticketverwaltung
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/ticketverwaltung:latest -f ./ticketverwaltung/Dockerfile .
           docker push ${{ secrets.DOCKER_USERNAME }}/ticketverwaltung:latest
 
       - name: Build and Push employeemanager Image
         working-directory: ./project/ticket-system
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/employeemanager:latest -f ./employeeManager/Dockerfile ./employeeManager
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/employeemanager:latest -f ./employeeManager/Dockerfile .
           docker push ${{ secrets.DOCKER_USERNAME }}/employeemanager:latest

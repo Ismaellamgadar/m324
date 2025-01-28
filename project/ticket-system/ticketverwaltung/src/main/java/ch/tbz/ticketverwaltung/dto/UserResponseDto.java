@@ -1,4 +1,4 @@
-package ch.tbz.ticketsystem.dto;
+package ch.tbz.ticketverwaltung.dto;
 
 public class UserResponseDto {
     private boolean exists;

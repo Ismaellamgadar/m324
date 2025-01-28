@@ -1,8 +1,8 @@
-package ch.tbz.ticketsystem.service;
+package ch.tbz.ticketverwaltung.service;
 
-import ch.tbz.ticketsystem.entity.Ticket;
-import ch.tbz.ticketsystem.repository.TicketRepository;
-import ch.tbz.ticketsystem.repository.UserRepository;
+import ch.tbz.ticketverwaltung.entity.Ticket;
+import ch.tbz.ticketverwaltung.repository.TicketRepository;
+import ch.tbz.ticketverwaltung.repository.UserRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 

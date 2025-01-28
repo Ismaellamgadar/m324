@@ -1,15 +1,15 @@
-package ch.tbz.ticketsystem.entity;
+package ch.tbz.ticketverwaltung.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
 import java.time.LocalDate;
 
+import static jakarta.persistence.GenerationType.IDENTITY;
 import static jakarta.persistence.GenerationType.SEQUENCE;
 
 @Entity
@@ -18,10 +18,10 @@ import static jakarta.persistence.GenerationType.SEQUENCE;
 @Setter
 public class Ticket {
     @Id
-    @GeneratedValue(strategy = SEQUENCE)
+    @GeneratedValue(strategy = IDENTITY)
     private Long id;
     @NotNull(message = "State is mandatory")
-    @Pattern(regexp = "OPEN|IN_PROGRESS|REVIEW|DONE", message = "State must be one of these options: 'OPEN', 'IN_PROGRESS', 'REVIEW', 'DONE'")
+    @Enumerated(EnumType.STRING)
     private State state;
     @NotNull(message = "Title is mandatory")
     private String title;

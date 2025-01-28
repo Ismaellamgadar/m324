@@ -74,6 +74,7 @@ jobs:
           path: project/ticket-system/**/target/surefire-reports/
 
   build-and-push-docker:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     needs: performance-tests
 

@@ -53,7 +53,7 @@
 			<scope>test</scope>
 			<exclusions>
 				<exclusion>
-					<groupId>org.junit.vintage</groupId>
+					<groupId>org.j§unit.vintage</groupId>
 					<artifactId>junit-vintage-engine</artifactId>
 				</exclusion>
 			</exclusions>

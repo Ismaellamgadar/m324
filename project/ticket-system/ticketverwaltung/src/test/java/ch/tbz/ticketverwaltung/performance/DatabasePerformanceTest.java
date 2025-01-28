@@ -1,5 +1,6 @@
 package ch.tbz.ticketverwaltung.performance;
 
+import ch.tbz.ticketverwaltung.entity.State;
 import ch.tbz.ticketverwaltung.entity.Ticket;
 import ch.tbz.ticketverwaltung.repository.TicketRepository;
 import org.junit.jupiter.api.Test;
@@ -22,6 +23,8 @@ public class DatabasePerformanceTest {
             Ticket ticket = new Ticket();
             ticket.setTitle("Test Ticket " + i);
             ticket.setDescription("Description for ticket " + i);
+            ticket.setUserId(1L);
+            ticket.setState(State.OPEN);
             ticketRepository.save(ticket);
         });
 

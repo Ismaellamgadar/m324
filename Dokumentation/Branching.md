@@ -17,6 +17,7 @@
 
 #### **2. Release Branch (`release`)**
 - **Verwendungszweck:** Fork von dem develop Branch, wenn der develop Branch genug features für einen Release hat. Das ist der Start eines Release Zyklus. Dann sollten keine neuen Features auf dem Branch gemerged werden. Nur Bugfixes dürfen dann noch drauf.
+- **Achtung:** In diesem Projekt wurden keine Release Branches erstellt, da wir nicht zu einem ersten Release der Applikation gekommen sind.
 - **Naming Convention:** `release`
 
 #### **3. Develop Branch (`develop`)**
@@ -31,7 +32,7 @@
 
 ### **Merge-Wege**
 - **Feature -> Develop:** Nach Abschluss eines Features wird der Code durch einen Pull Request in den `develop` Branch gemergt.
-- **Develop -> Release:** Sobald Develop genug Features für einen Release hat wird der Code durch einen Fork in den `release` Branch dupliziert.
+- **Develop -> Release:** Sobald Develop genug Features für einen Release hat würde der Code durch einen Fork in den `release` Branch dupliziert werden. Leider konnte dies nicht umgesetzt werden aufgrund von limitierter Zeit.
 - **Release -> main:** Sobald im Release Branch grüne Tests hat und der Build funktioniert, kann er auf main installiert werden, sodass es auf Produktion angepasst wird.
 
 ### **Ablaufprozess: neues Feature**

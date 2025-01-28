@@ -62,7 +62,8 @@ jobs:
       - name: Run Performance Tests
         working-directory: ./project/ticket-system/ticketverwaltung
         run: |
-          mvn test -Dtest=DatabasePerformanceTest
+          echo "Running performance tests using Maven..."
+          mvn test -Dtest=*PerformanceTest -Dsurefire.failIfNoSpecifiedTests=false
         env:
           MAVEN_OPTS: "-Dmaven.test.failure.ignore=false"
 

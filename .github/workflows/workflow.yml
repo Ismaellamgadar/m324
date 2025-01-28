@@ -108,16 +108,16 @@ jobs:
           docker build -t ${{ secrets.DOCKER_USERNAME }}/ticketverwaltung:latest -f Dockerfile .
           docker push ${{ secrets.DOCKER_USERNAME }}/ticketverwaltung:latest
 
-      - name: Build employeemanager Module
-        working-directory: ./project/ticket-system/employeemanager
+      - name: Build employeeManager Module
+        working-directory: ./project/ticket-system/employeeManager
         run: mvn clean package
 
-      - name: Debug employeemanager Build Directory
-        working-directory: ./project/ticket-system/employeemanager
+      - name: Debug employeeManager Build Directory
+        working-directory: ./project/ticket-system/employeeManager
         run: ls -la target
 
-      - name: Build and Push employeemanager Image
-        working-directory: ./project/ticket-system/employeemanager
+      - name: Build and Push employeeManager Image
+        working-directory: ./project/ticket-system/employeeManager
         run: |
           docker build -t ${{ secrets.DOCKER_USERNAME }}/employeemanager:latest -f Dockerfile .
           docker push ${{ secrets.DOCKER_USERNAME }}/employeemanager:latest

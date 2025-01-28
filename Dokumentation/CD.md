@@ -18,6 +18,11 @@
 
 ---
 
+## **Delivery auf Docker-Hub**
+<img width="1512" alt="image" src="https://github.com/user-attachments/assets/d9008673-362f-48b0-9d27-51404b685192" />
+
+---
+
 ## Mögliche Orte für Deployment
 - https://www.heroku.com/java
 - https://aws.amazon.com/de/

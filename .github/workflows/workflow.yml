@@ -30,7 +30,7 @@ jobs:
 
       - name: Build All Modules
         working-directory: ./project/ticket-system
-        run: mvn clean compile
+        run: mvn clean package
 
       - name: Run Unit Tests
         working-directory: ./project/ticket-system

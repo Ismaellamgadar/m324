@@ -82,20 +82,42 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
+      - name: Build ticketverwaltung Module
+        working-directory: ./project/ticket-system/ticketverwaltung
+        run: mvn clean package
+
+      - name: Debug ticketverwaltung Build Directory
+        working-directory: ./project/ticket-system/ticketverwaltung
+        run: ls -la target
+
       - name: Build and Push ticketverwaltung Image
-        working-directory: ./project/ticket-system
+        working-directory: ./project/ticket-system/ticketverwaltung
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/ticketverwaltung:latest -f ./ticketverwaltung/Dockerfile ./ticketverwaltung
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/ticketverwaltung:latest -f Dockerfile .
           docker push ${{ secrets.DOCKER_USERNAME }}/ticketverwaltung:latest
 
-      - name: Build and Push employeemanager Image
-        working-directory: ./project/ticket-system
+      - name: Build employeeManager Module
+        working-directory: ./project/ticket-system/employeeManager
+        run: mvn clean package
+
+      - name: Debug employeeManager Build Directory
+        working-directory: ./project/ticket-system/employeeManager
+        run: ls -la target
+
+      - name: Build and Push employeeManager Image
+        working-directory: ./project/ticket-system/employeeManager
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/employeemanager:latest -f ./employeeManager/Dockerfile ./employeeManager
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/employeemanager:latest -f Dockerfile .
           docker push ${{ secrets.DOCKER_USERNAME }}/employeemanager:latest
